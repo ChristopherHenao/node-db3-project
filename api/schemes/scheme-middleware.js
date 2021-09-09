@@ -1,4 +1,3 @@
-const Schemes = require('./scheme-model')
 const db = require('../../data/db-config')
 /*
   If `scheme_id` does not exist in the database:
@@ -36,9 +35,6 @@ const validateScheme = (req, res, next) => {
   if (!scheme_name || typeof scheme_name !== 'string') {
     next({ status: 400, message: 'invalid scheme_name' })
   }
-  // else if (typeof scheme_name !== 'string') {
-  //   next({ status: 400, 'message': 'invalid scheme_name' })
-  // }
   else {
     next()
   }
