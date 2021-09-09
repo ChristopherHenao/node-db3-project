@@ -99,7 +99,19 @@ async function findById(scheme_id) { // EXERCISE B
         .orderBy('st.step_number', 'asc')
 
 
-      const result = {
+      // const result = {
+      //   scheme_id: data[0].scheme_id,
+      //   scheme_name: data[0].scheme_name,
+      //   steps: (data[0].step_id === null ? [] : data.map(step => {
+      //     return {
+      //       step_id: step.step_id,
+      //       step_number: step.step_number,
+      //       instructions: step.instructions
+      //     }
+      //   }))
+      // }
+
+      const result = (!data ? null : {
         scheme_id: data[0].scheme_id,
         scheme_name: data[0].scheme_name,
         steps: (data[0].step_id === null ? [] : data.map(step => {
@@ -109,7 +121,7 @@ async function findById(scheme_id) { // EXERCISE B
             instructions: step.instructions
           }
         }))
-      }
+      })
 
       return result
 }
